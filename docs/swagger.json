@@ -1,0 +1,56 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/users/{id}": {
+            "get": {
+                "description": "Retrieves a user from the system based on their ID",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "users"
+                ],
+                "summary": "Get user by ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "The user's ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/main.User"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "main.User": {
+            "type": "object",
+            "properties": {
+                "age": {
+                    "description": "@in body",
+                    "type": "integer"
+                },
+                "id": {
+                    "description": "@in body\n@required",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "@in body",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
